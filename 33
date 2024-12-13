@@ -1,0 +1,45 @@
+def delete(a):
+    ans=[]
+    for i in range(a):
+        if i not in ans:
+            ans.append(i)
+    return ans
+
+def count (a):
+    f=0
+    less=[]
+    for i in a :
+        if i[1]>500:
+            f+=1
+        else:
+            less.append(i)
+    return f , less   
+
+def sort(a):
+    ans=a.copy()
+    for i in range(0,len(ans)):
+       for j in range (0,len(ans)-i-1):
+            if [j][1]>[j+1][1]:
+                temp=ans[j]
+                ans[j]=ans[j+1]
+                ans[j+1]=ans[j]
+    return ans            
+    
+    
+   
+
+n=int(input("ENTER THE NUMBER OF BOOKS:"))
+
+books=[]
+for i in range (n):
+    a=int(input("ENTER THE id OF BOOK {i+1}:"))
+    b=int(input("ENTER THE cost OF BOOK {i+1}:"))
+    book.append([a,b])
+
+print("Delete the duplicate entries", delete( book  )
+print("Display books in ascending order based on cost of books",sort(delete(book) )
+tub=count(delete(book) )
+print("Count number of books with cost more than 500",tub[0]   )
+print("Copy books in a new list which has cost less than 500",tub[1]  )
+    
+     
