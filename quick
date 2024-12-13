@@ -1,0 +1,22 @@
+def quicksort(arr):
+    if len(arr)<=1:
+        return arr
+    else:
+        pivot=arr[0]
+        left=[x for x in arr[1:]if x< pivot]
+        middle=[x for x in arr if x== pivot]
+        right=[x for x in arr[1:]if x>= pivot]
+        return quicksort(left)+middle+quicksort(right)
+        
+m=int(input("enter the number of percentage:"))
+percentage=[]
+for i in range(m):
+    n=int(input("enter the percentage:"))
+    percentage.append(n)
+
+sorted_percentage=quicksort(percentage)
+print("percentage in assending:",sorted_percentage)
+top_five_per=sorted_percentage[-5:]
+print("top_five_percentage",top_five_per)
+top_five_per.reverse()
+print("percentage in D",top_five_per)
