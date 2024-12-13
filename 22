@@ -1,0 +1,35 @@
+n=int(input("ENTER THE NO OF STUDENT :"))
+present, sum, min, max, absent = 0,0,51,-1,0
+marklist=[]
+for i in range(n):
+    temp=input(f"ENTER THE MARKS OF STUDENT{i+1}or AB for absent:")
+    marklist.append(temp)
+    if temp!="AB":
+        present+=1
+        sum+=int(temp)
+        if int(temp) > max:
+            max=int(temp)
+        if  int(temp) < min:
+            min=int(temp)
+    else:
+        absent+=1
+avg=sum/present
+
+max_f=0
+mark=[]
+for i in range(0,51):
+    f = 0
+    for j in marklist:
+        if j!="AB" and i==int(j):
+          f+=1
+    if f > max_f:
+        max_f=f;
+        mark.clear()
+        mark.append(i)
+    elif f== max_f :
+        mark.append(i)
+        
+print(f"a. Average Score of the Class = {avg}")
+print(f"b. Highest Score = {max} and Lowest Score = {min}")
+print(f"c. Number of Absent Student =", absent)
+print(f"c. Number of frequency of Student = {max_f}")
