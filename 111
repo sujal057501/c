@@ -1,0 +1,24 @@
+def union (a,b):
+    ans=b.copy()
+    for student in a:
+        if student not in b:
+            ans.append(student)
+    return ans
+    
+def minus (a,b):
+    ans=[]
+    for student in a:
+        if student not in b:
+            ans.append(student)
+    return ans    
+    
+u=input("ENTER NO OF STUDENT:").split(",") 
+c=input("ENTER NO OF STUDENT PLAY CRICKET:").split(",") 
+b=input("ENTER NO OF STUDENT PLAY BADMINTON:").split(",") 
+f=input("ENTER NO OF STUDENT PLAY FOOTBALL:").split(",")
+
+print("List of students who play CRICKET and BADMINTON:",intersection(c,b))
+print("List of the students who play either CRICKET or BADMINTON but not  BOTH:",union(minus(c,intersection(b,c)),minus(b,intersection(b,c))))
+print("Number of students who play neither CRICKET nor BADMINTON:",minus(minus(u,b),c))
+print ("Number of students who play CRICKET and FOOTBALL but not BADMINTON:",minus(intersection(c,f),b))
+    
